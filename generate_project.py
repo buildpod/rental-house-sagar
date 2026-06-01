@@ -144,8 +144,9 @@ def draw_gf():
     c += draw_door(100, 140, 30, 180) # Att Bath
     c += draw_door(200, 50, 30, 180) # Common Bath
     c += draw_door(250, 130, 30, 0) # Living to Corridor
-    c += draw_door(350, 210, 40, -90) # Main House Entry
-    c += draw_door(350, 280, 30, -90) # Kitchen back door / stair access
+    c += draw_door(350, 90, 40, -90) # Main House Entry (into Living Room)
+    c += draw_door(350, 210, 30, -90) # Kitchen back door
+    c += draw_door(350, 280, 30, -90) # Kitchen secondary door / stair access
     
     return svg_wrap(c, "GROUND FLOOR PLAN (2BHK + PARKING)")
 
