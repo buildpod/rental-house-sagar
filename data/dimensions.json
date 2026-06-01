@@ -1,0 +1,43 @@
+{
+  "Plot": {
+    "Width_ft": 30,
+    "Depth_ft": 50,
+    "Total_Area_sqft": 1500
+  },
+  "Areas": {
+    "Ground_Floor": {
+      "Total": 1500,
+      "BuiltUp": 1500,
+      "Parking": 270,
+      "Stair": 105,
+      "Shafts": 45,
+      "Rentable": 1080
+    },
+    "First_Floor": {
+      "Total": 1500,
+      "BuiltUp": 1650,
+      "Balcony": 115,
+      "Stair": 105,
+      "Shafts": 45,
+      "Rentable": 1385
+    },
+    "Second_Floor": {
+      "Total": 1500,
+      "BuiltUp": 400,
+      "Stair": 105,
+      "Shafts": 45,
+      "Terrace": 950,
+      "Rentable": 195
+    },
+    "Efficiency": "Approx 82% Rentable vs BuiltUp (Excellent)"
+  },
+  "Staircase_Details": {
+    "Width": "3.5 ft per flight",
+    "Tread": "10 inches",
+    "Riser": "7 inches",
+    "Steps": 18,
+    "Landing": "3.5 ft x 7 ft",
+    "Headroom": "Min 7 ft",
+    "Railing": "MS or SS 304"
+  }
+}

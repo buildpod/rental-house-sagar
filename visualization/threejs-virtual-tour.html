@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Virtual Tour - Ground Floor</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #222; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        canvas { display: block; }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            pointer-events: none;
+        }
+        h1 { margin: 0 0 10px 0; font-size: 20px; font-weight: 600; }
+        p { margin: 0; font-size: 14px; color: #aaa; }
+        #controls-help {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ddd;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 12px;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <h1>Ground Floor 3D Map</h1>
+        <p>30x50 ft East-Facing Plot</p>
+    </div>
+    <div id="controls-help">
+        Drag to Rotate | Scroll to Zoom | Right-Click to Pan
+    </div>
+
+    <!-- Import Map for Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // Scene Setup
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x1a1a1a);
+        scene.fog = new THREE.Fog(0x1a1a1a, 50, 150);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(40, 50, 60);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.05; // Don't go below ground
+        controls.target.set(0, 0, 0);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        dirLight.position.set(20, 40, 20);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 2048;
+        dirLight.shadow.mapSize.height = 2048;
+        dirLight.shadow.camera.left = -30;
+        dirLight.shadow.camera.right = 30;
+        dirLight.shadow.camera.top = 30;
+        dirLight.shadow.camera.bottom = -30;
+        scene.add(dirLight);
+
+        // Materials
+        const wallMat = new THREE.MeshStandardMaterial({ color: 0xeeeeee, roughness: 0.8 });
+        const floorMat = new THREE.MeshStandardMaterial({ color: 0x888888, roughness: 0.9 });
+        const roadMat = new THREE.MeshStandardMaterial({ color: 0x333333, roughness: 1.0 });
+
+        // Ground Plane (The Plot)
+        // Plot is 30ft width (X), 50ft depth (Z). Origin is center.
+        const plotGeo = new THREE.PlaneGeometry(30, 50);
+        const plotMesh = new THREE.Mesh(plotGeo, floorMat);
+        plotMesh.rotation.x = -Math.PI / 2;
+        plotMesh.receiveShadow = true;
+        scene.add(plotMesh);
+
+        // Front Road (East is +Z)
+        const roadGeo = new THREE.PlaneGeometry(60, 20);
+        const roadMesh = new THREE.Mesh(roadGeo, roadMat);
+        roadMesh.rotation.x = -Math.PI / 2;
+        roadMesh.position.set(0, -0.01, 35);
+        roadMesh.receiveShadow = true;
+        scene.add(roadMesh);
+
+        // Helper to create rooms (represented as extruded floor plates with distinct colors and half-walls)
+        function createRoom(name, color, w, d, x, z, h = 4) {
+            const group = new THREE.Group();
+            
+            // Floor
+            const geo = new THREE.PlaneGeometry(w, d);
+            const mat = new THREE.MeshStandardMaterial({ color: color });
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.rotation.x = -Math.PI / 2;
+            mesh.position.set(x, 0.01, z);
+            mesh.receiveShadow = true;
+            group.add(mesh);
+
+            // Walls (simplified outline)
+            const thickness = 0.5;
+            const wallH = h;
+            
+            // Left Wall
+            const lw = new THREE.Mesh(new THREE.BoxGeometry(thickness, wallH, d), wallMat);
+            lw.position.set(x - w/2, wallH/2, z);
+            lw.castShadow = true;
+            lw.receiveShadow = true;
+            group.add(lw);
+            
+            // Right Wall
+            const rw = new THREE.Mesh(new THREE.BoxGeometry(thickness, wallH, d), wallMat);
+            rw.position.set(x + w/2, wallH/2, z);
+            rw.castShadow = true;
+            rw.receiveShadow = true;
+            group.add(rw);
+            
+            // Back Wall
+            const bw = new THREE.Mesh(new THREE.BoxGeometry(w, wallH, thickness), wallMat);
+            bw.position.set(x, wallH/2, z - d/2);
+            bw.castShadow = true;
+            bw.receiveShadow = true;
+            group.add(bw);
+            
+            // Front Wall
+            const fw = new THREE.Mesh(new THREE.BoxGeometry(w, wallH, thickness), wallMat);
+            fw.position.set(x, wallH/2, z + d/2);
+            fw.castShadow = true;
+            fw.receiveShadow = true;
+            group.add(fw);
+
+            scene.add(group);
+            return group;
+        }
+
+        // Room Layout (X: -15 to 15, Z: -25 to 25)
+        
+        // 1. NE Parking: X (0 to 15) -> Center X = 7.5, Width = 15. Z (10 to 25) -> Center Z = 17.5, Depth = 15
+        createRoom("Parking", 0x666666, 15, 15, 7.5, 17.5, 1); // low walls
+
+        // 2. SE Staircase: X (-15 to 0) -> Center X = -7.5, Width = 15. Z (10 to 25) -> Center Z = 17.5, Depth = 15
+        // Wait, stairs should be 7ft wide. X (-15 to -8) -> Center X = -11.5, Width = 7
+        createRoom("Staircase", 0x995555, 7, 15, -11.5, 17.5);
+
+        // 3. East Living Room: X (-8 to 15) -> Center X = 3.5, Width = 23. Z (0 to 10) -> Center Z = 5, Depth = 10
+        createRoom("Living", 0xddddbb, 23, 10, 3.5, 5);
+
+        // 4. Kitchen (South Center): X (-15 to -5) -> Center X = -10, Width = 10. Z (-10 to 0) -> Center Z = -5, Depth = 10
+        createRoom("Kitchen", 0xaaddaa, 10, 10, -10, -5);
+
+        // 5. Central Shaft (North Center): X (11 to 15) -> Center X = 13, Width = 4. Z (-10 to 0) -> Center Z = -5, Depth = 10
+        createRoom("Shaft1", 0x333333, 4, 10, 13, -5, 10); // Tall shaft
+
+        // 6. Common Bath: X (-5 to 11) -> Center X = 3, Width = 16 (too big, let's make it 6x8).
+        // Let's adjust: Bath X (5 to 11) -> W=6. Z (-10 to -2) -> D=8.
+        createRoom("CommonBath", 0x88bbdd, 6, 8, 8, -6);
+        // Corridor: X (-5 to 5) -> W=10. Z (-10 to 0) -> D=10.
+        createRoom("Corridor", 0xddddbb, 10, 10, 0, -5);
+
+        // 7. SW Master Bed: X (-15 to -2) -> W=13. Z (-25 to -10) -> D=15.
+        createRoom("MasterBed", 0xddbbbb, 13, 15, -8.5, -17.5);
+
+        // 8. NW Bed 2: X (-2 to 15) -> W=17. Z (-25 to -10) -> D=15.
+        createRoom("Bed2", 0xbbccdd, 17, 15, 6.5, -17.5);
+        
+        // 9. Rear Shaft (West): Cut out of SW corner. X (-15 to -11) -> W=4. Z (-25 to -17) -> D=8.
+        // We will overlay this to represent the shaft area.
+        createRoom("Shaft2", 0x333333, 4, 8, -13, -21, 10);
+
+        // 3D Text Labels (using sprites for simplicity without font loading)
+        function createLabel(text, x, y, z) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 256; canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(text, 128, 32);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
+            const sprite = new THREE.Sprite(material);
+            sprite.scale.set(8, 2, 1);
+            sprite.position.set(x, y, z);
+            scene.add(sprite);
+        }
+
+        createLabel("SUV Parking", 7.5, 0.5, 17.5);
+        createLabel("Staircase", -11.5, 5, 17.5);
+        createLabel("Living Room", 3.5, 2, 5);
+        createLabel("Kitchen", -10, 2, -5);
+        createLabel("Master Bed", -8.5, 2, -15);
+        createLabel("Bed 2", 6.5, 2, -17.5);
+        createLabel("OTS Shaft", 13, 8, -5);
+        createLabel("OTS Shaft", -13, 8, -21);
+
+        // Resize Handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>

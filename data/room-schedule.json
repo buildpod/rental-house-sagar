@@ -1,0 +1,33 @@
+{
+  "Ground_Floor": {
+    "SUV_Parking": "15'x18'",
+    "Stairs": "15'x7'",
+    "Entry_Lobby": "15'x5'",
+    "Living": "10'x18'",
+    "Kitchen": "15'x12'",
+    "Master_Bed": "15'x13'",
+    "Bed_2": "15'x12'",
+    "Common_Bath": "5'x7'",
+    "Att_Bath": "6'x5'",
+    "Pooja": "4'x4'"
+  },
+  "First_Floor": {
+    "1BHK_Living": "20'x13'",
+    "1BHK_Kitchen": "10'x8'",
+    "1BHK_Bed": "15'x13'",
+    "1BHK_Bath": "11'x5'",
+    "Single_Room_Living": "20'x17'",
+    "Single_Room_Bed": "15'x12'",
+    "Single_Room_Bath": "5'x9'",
+    "East_Balcony": "5'x23'"
+  },
+  "Second_Floor": {
+    "Studio_Room": "15'x13'",
+    "Studio_Kitchenette": "In-Room",
+    "Studio_Bath": "5'x8'",
+    "Staircase_Lobby": "15'x6'",
+    "Open_Terrace": "Remaining Area",
+    "Utility_Drying_Zone": "On Terrace",
+    "Water_Tank_Zone": "Over Stair Mumty"
+  }
+}

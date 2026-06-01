@@ -1,0 +1,8 @@
+
+<!DOCTYPE html><html><head><title>3D Tour</title><style>body{margin:0; overflow:hidden;} #btns{position:absolute; top:10px; left:10px;}</style></head>
+<body><div id="btns"><button onclick="alert('Viewing Facade')">Facade</button><button onclick="alert('Viewing GF')">Ground Floor</button></div>
+<div id="canvas-container"></div>
+<script type="module">
+import { initTour } from './threejs-tour.js';
+initTour('canvas-container');
+</script></body></html>

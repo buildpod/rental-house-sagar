@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Architectural Concept Sheet</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f0f2f5; margin: 0; padding: 40px; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-radius: 12px; }
+        h1 { text-align: center; color: #1a1a1a; }
+        .header { text-align: center; margin-bottom: 50px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
+        .plans { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+        .plan-card { flex: 1; min-width: 350px; background: #fff; border: 1px solid #eaeaea; border-radius: 8px; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .plan-card h3 { margin-top: 0; color: #444; }
+        .hero-img { width: 100%; max-width: 800px; border-radius: 12px; margin: 0 auto 40px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Rental Investment House Plan</h1>
+            <p>30 ft x 50 ft | East Facing | Tilli Colony, Sagar MP</p>
+        </div>
+        
+        <h2 style="text-align: center; margin-bottom: 20px;">Proposed 3D Facade</h2>
+        <img src="/Users/vineetpathak/.gemini/antigravity/brain/132bee9e-f38d-4e59-b6d4-d9c6253dc3a3/modern_rental_facade_1780329314609.png" alt="3D Facade Render" class="hero-img">
+
+        <h2 style="text-align: center; margin: 50px 0 30px;">2D AutoCAD-Style Schematics</h2>
+        <div class="plans">
+            <div class="plan-card">
+                <h3>Ground Floor (2BHK + Parking)</h3>
+                
+    <svg viewBox="-20 -20 340 540" width="100%" height="600px" style="background:white; border: 1px solid #ccc; font-family: sans-serif;">
+        <!-- Plot Boundary -->
+        <rect x="0" y="0" width="300" height="500" fill="#f9f9f9" stroke="#333" stroke-width="3"/>
+        
+        <!-- Y=0 to 150 (Bedrooms) -->
+        <rect x="0" y="0" width="150" height="150" fill="#ffe0e0" stroke="#333" stroke-width="2"/>
+        <text x="75" y="75" text-anchor="middle" font-size="14" font-weight="bold">Master Bed (SW)</text>
+        <text x="75" y="95" text-anchor="middle" font-size="12">15' x 15'</text>
+        
+        <rect x="150" y="0" width="150" height="150" fill="#e0e0ff" stroke="#333" stroke-width="2"/>
+        <text x="225" y="75" text-anchor="middle" font-size="14" font-weight="bold">Bed 2 (NW)</text>
+        <text x="225" y="95" text-anchor="middle" font-size="12">15' x 15'</text>
+
+        <!-- Rear Shaft & Attached Bath (Cut out of Master Bed) -->
+        <rect x="0" y="40" width="40" height="80" fill="#ddd" stroke="#333" stroke-width="2"/>
+        <text x="20" y="80" text-anchor="middle" font-size="10">Shaft</text>
+        
+        <rect x="40" y="40" width="60" height="80" fill="#d0f0d0" stroke="#333" stroke-width="2"/>
+        <text x="70" y="80" text-anchor="middle" font-size="10">Att. Bath</text>
+
+        <!-- Y=150 to 220 (Corridor, Bath, Shaft) -->
+        <rect x="0" y="150" width="150" height="70" fill="#fff" stroke="#333" stroke-width="2"/>
+        <text x="75" y="185" text-anchor="middle" font-size="12">Corridor / Dining</text>
+
+        <rect x="150" y="150" width="90" height="70" fill="#d0f0d0" stroke="#333" stroke-width="2"/>
+        <text x="195" y="185" text-anchor="middle" font-size="12">Common Bath</text>
+
+        <rect x="240" y="150" width="60" height="70" fill="#ddd" stroke="#333" stroke-width="2"/>
+        <text x="270" y="185" text-anchor="middle" font-size="12">Shaft (N)</text>
+
+        <!-- Y=220 to 350 (Living, Kitchen) -->
+        <rect x="0" y="220" width="120" height="130" fill="#fff0e0" stroke="#333" stroke-width="2"/>
+        <text x="60" y="285" text-anchor="middle" font-size="14" font-weight="bold">Kitchen (S)</text>
+        <text x="60" y="305" text-anchor="middle" font-size="12">12' x 13'</text>
+
+        <rect x="120" y="220" width="180" height="130" fill="#ffffe0" stroke="#333" stroke-width="2"/>
+        <text x="210" y="285" text-anchor="middle" font-size="14" font-weight="bold">Living Room</text>
+        <text x="210" y="305" text-anchor="middle" font-size="12">18' x 13'</text>
+        
+        <rect x="250" y="300" width="50" height="50" fill="#ffe0ff" stroke="#333" stroke-width="2"/>
+        <text x="275" y="325" text-anchor="middle" font-size="10">Pooja (NE)</text>
+
+        <!-- Y=350 to 500 (Parking, Stairs, Entry) -->
+        <rect x="0" y="350" width="80" height="150" fill="#f0d0d0" stroke="#333" stroke-width="2"/>
+        <text x="40" y="425" text-anchor="middle" font-size="12" font-weight="bold">Stairs (SE)</text>
+        <!-- Stair lines -->
+        <line x1="0" y1="370" x2="80" y2="370" stroke="#555" stroke-width="1"/>
+        <line x1="0" y1="390" x2="80" y2="390" stroke="#555" stroke-width="1"/>
+        <line x1="0" y1="410" x2="80" y2="410" stroke="#555" stroke-width="1"/>
+        <line x1="0" y1="430" x2="80" y2="430" stroke="#555" stroke-width="1"/>
+        <line x1="0" y1="450" x2="80" y2="450" stroke="#555" stroke-width="1"/>
+        
+        <rect x="80" y="350" width="70" height="150" fill="#e0f0ff" stroke="#333" stroke-width="2"/>
+        <text x="115" y="425" text-anchor="middle" font-size="12">Entry Lobby</text>
+
+        <rect x="150" y="350" width="150" height="150" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+        <text x="225" y="415" text-anchor="middle" font-size="14" font-weight="bold">SUV Parking</text>
+        <text x="225" y="435" text-anchor="middle" font-size="10">UG Tank Below</text>
+        
+        <!-- Road marker -->
+        <text x="150" y="525" text-anchor="middle" font-size="16" font-weight="bold">30ft Road (EAST)</text>
+        <line x1="0" y1="500" x2="300" y2="500" stroke="black" stroke-width="4"/>
+    </svg>
+    
+            </div>
+            <div class="plan-card">
+                <h3>First Floor (1BHK + Single Room)</h3>
+                
+    <svg viewBox="-20 -20 340 540" width="100%" height="600px" style="background:white; border: 1px solid #ccc; font-family: sans-serif;">
+        <!-- Plot Boundary -->
+        <rect x="0" y="0" width="300" height="500" fill="#f9f9f9" stroke="#333" stroke-width="3"/>
+        
+        <!-- Y=0 to 150 (Bedrooms) -->
+        <rect x="0" y="0" width="150" height="150" fill="#ffe0e0" stroke="#333" stroke-width="2"/>
+        <text x="75" y="75" text-anchor="middle" font-size="14" font-weight="bold">1BHK Bed (SW)</text>
+        
+        <!-- Shared Shaft -->
+        <rect x="0" y="40" width="40" height="80" fill="#ddd" stroke="#333" stroke-width="2"/>
+        <text x="20" y="80" text-anchor="middle" font-size="10">Shaft</text>
+
+        <rect x="150" y="0" width="150" height="150" fill="#e0e0ff" stroke="#333" stroke-width="2"/>
+        <text x="225" y="75" text-anchor="middle" font-size="14" font-weight="bold">Single Rm (NW)</text>
+
+        <!-- Y=150 to 220 (Corridor, Bath, Shaft) -->
+        <rect x="0" y="150" width="90" height="70" fill="#d0f0d0" stroke="#333" stroke-width="2"/>
+        <text x="45" y="185" text-anchor="middle" font-size="12">1BHK Bath</text>
+
+        <rect x="90" y="150" width="60" height="70" fill="#d0f0d0" stroke="#333" stroke-width="2"/>
+        <text x="120" y="185" text-anchor="middle" font-size="12">SR Bath</text>
+
+        <rect x="240" y="150" width="60" height="70" fill="#ddd" stroke="#333" stroke-width="2"/>
+        <text x="270" y="185" text-anchor="middle" font-size="12">Shaft (N)</text>
+        
+        <!-- Y=220 to 350 -->
+        <rect x="0" y="220" width="120" height="130" fill="#fff0e0" stroke="#333" stroke-width="2"/>
+        <text x="60" y="285" text-anchor="middle" font-size="14" font-weight="bold">1BHK Kitchen</text>
+
+        <rect x="120" y="220" width="180" height="130" fill="#ffffe0" stroke="#333" stroke-width="2"/>
+        <text x="210" y="285" text-anchor="middle" font-size="14" font-weight="bold">1BHK Living</text>
+
+        <!-- Y=350 to 500 -->
+        <rect x="0" y="350" width="80" height="150" fill="#f0d0d0" stroke="#333" stroke-width="2"/>
+        <text x="40" y="425" text-anchor="middle" font-size="12" font-weight="bold">Stairs</text>
+        
+        <rect x="80" y="350" width="220" height="50" fill="#e0f0ff" stroke="#333" stroke-width="2"/>
+        <text x="190" y="375" text-anchor="middle" font-size="12">Balcony Access</text>
+
+        <rect x="80" y="400" width="220" height="100" fill="#a0d0ff" stroke="#333" stroke-width="2"/>
+        <text x="190" y="450" text-anchor="middle" font-size="14" font-weight="bold">EAST BALCONY</text>
+    </svg>
+    
+            </div>
+        </div>
+    </div>
+</body>
+</html>
