@@ -1,9 +1,50 @@
-{
-  "Orientation": "East Facing",
-  "Main_Door": "North-East (Auspicious)",
-  "UG_Tank": "North-East under parking (Auspicious)",
-  "Kitchen": "South/South-East (Auspicious)",
-  "Master_Bed": "South-West (Auspicious)",
-  "Pooja": "North-East in Living (Auspicious)",
-  "Stairs": "South-East (Acceptable, preserves NE)"
-}
+[
+  {
+    "item": "Entrance",
+    "planningIntent": "East/front entry with NE-friendly approach where feasible",
+    "complianceStatus": "Concept pass",
+    "compromiseNotes": "Exact pada and gate position must be verified after final site survey."
+  },
+  {
+    "item": "Pooja",
+    "planningIntent": "Small pooja space near living with NE planning intent",
+    "complianceStatus": "Concept pass",
+    "compromiseNotes": "Final location depends on column offsets and door swing."
+  },
+  {
+    "item": "Kitchen",
+    "planningIntent": "SE/south-leaning service zone with stacked plumbing",
+    "complianceStatus": "Concept pass with compromise",
+    "compromiseNotes": "Three-side-blocked plot may force service orientation over ideal Vastu placement."
+  },
+  {
+    "item": "Bedroom",
+    "planningIntent": "Master bedroom placed toward SW/rear side where possible",
+    "complianceStatus": "Concept pass",
+    "compromiseNotes": "Final compass bearing must be confirmed on site."
+  },
+  {
+    "item": "Toilets",
+    "planningIntent": "Grouped near shafts and away from pooja/front entry",
+    "complianceStatus": "Concept pass with compromise",
+    "compromiseNotes": "Stacking wet areas is prioritized for buildability and maintenance."
+  },
+  {
+    "item": "Staircase",
+    "planningIntent": "Common stair along east/south-east service edge",
+    "complianceStatus": "Acceptable",
+    "compromiseNotes": "Stair direction and exact rise/tread must be finalized by architect."
+  },
+  {
+    "item": "Water storage",
+    "planningIntent": "Underground sump near front/NE zone; overhead tank on terrace above service/stair zone",
+    "complianceStatus": "Concept pass",
+    "compromiseNotes": "Tank placement must be structurally checked for concentrated loads."
+  },
+  {
+    "item": "Balcony/opening",
+    "planningIntent": "East-facing balcony on first floor",
+    "complianceStatus": "Concept pass",
+    "compromiseNotes": "Projection and railing rules require municipal confirmation."
+  }
+]

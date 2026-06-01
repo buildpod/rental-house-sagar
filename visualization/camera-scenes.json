@@ -1,1 +1,114 @@
-[{"id": "facade", "name": "Front Facade"}, {"id": "gf", "name": "Ground Floor Massing"}, {"id": "terrace", "name": "Terrace & OHT"}]
+[
+  {
+    "id": "front-road",
+    "name": "Front road approach",
+    "cameraPosition": [40, 24, 72],
+    "target": [0, 12, 18],
+    "caption": "East-facing 30 ft road frontage with the main facade, gate line, balcony, and independent access.",
+    "sellingPoint": "Strong street presence for rental appeal."
+  },
+  {
+    "id": "gate-facade",
+    "name": "Gate and facade",
+    "cameraPosition": [24, 18, 58],
+    "target": [2, 12, 24],
+    "caption": "Modern front facade uses simple bands, balcony glazing, a parking opening, and clear tenant entry.",
+    "sellingPoint": "Looks polished without depending on expensive cladding."
+  },
+  {
+    "id": "covered-parking",
+    "name": "Covered parking",
+    "cameraPosition": [30, 14, 42],
+    "target": [8, 4, 21],
+    "caption": "Covered SUV bay, bike parking, meter wall, underground sump zone, and separated tenant/stair movement.",
+    "sellingPoint": "Practical parking without sacrificing the stair."
+  },
+  {
+    "id": "ground-entry",
+    "name": "Ground-floor 2BHK entry",
+    "cameraPosition": [24, 14, 20],
+    "target": [3, 4, 2],
+    "caption": "Ground floor family unit uses the front lobby and internal living/kitchen spine.",
+    "sellingPoint": "Premium family rental on the easiest access level."
+  },
+  {
+    "id": "ground-living",
+    "name": "Ground-floor living",
+    "cameraPosition": [3, 13, 16],
+    "target": [-5, 5, -6],
+    "caption": "Living, pooja corner, TV wall, and dining connection are grouped near the east-side entry.",
+    "sellingPoint": "Visitor-friendly layout with pooja visibility."
+  },
+  {
+    "id": "ground-kitchen",
+    "name": "Ground-floor kitchen",
+    "cameraPosition": [-20, 14, 15],
+    "target": [-7, 5, -16],
+    "caption": "Kitchen, sink, fridge, washing point, and wet-wall logic align with plumbing shafts.",
+    "sellingPoint": "Lower plumbing cost and easier maintenance."
+  },
+  {
+    "id": "pooja-corner",
+    "name": "Pooja corner",
+    "cameraPosition": [14, 12, 24],
+    "target": [-1, 7, 9],
+    "caption": "The pooja location is kept near the living area with a NE-friendly planning intent.",
+    "sellingPoint": "Small but visible devotional space for family tenants."
+  },
+  {
+    "id": "staircase",
+    "name": "Common staircase",
+    "cameraPosition": [34, 20, 8],
+    "target": [10, 13, -16],
+    "caption": "Common stair stays independently reachable for upper-floor tenants and terrace access.",
+    "sellingPoint": "Clear owner/tenant movement separation."
+  },
+  {
+    "id": "first-1bhk",
+    "name": "First-floor 1BHK",
+    "cameraPosition": [38, 30, 34],
+    "target": [-6, 15, -4],
+    "caption": "First floor includes a full 1BHK with living, bedroom, kitchen, bathroom, and utility logic.",
+    "sellingPoint": "A stable mid-rent unit above the family floor."
+  },
+  {
+    "id": "first-balcony",
+    "name": "First-floor balcony",
+    "cameraPosition": [16, 25, 55],
+    "target": [0, 17, 27],
+    "caption": "Front balcony increases perceived value, shading, and street connection for the first floor.",
+    "sellingPoint": "Visible amenity for tenant attraction."
+  },
+  {
+    "id": "single-room",
+    "name": "Single-room unit",
+    "cameraPosition": [26, 25, 20],
+    "target": [6, 16, 5],
+    "caption": "Single-room unit has an attached washroom and compact appliance/wardrobe planning.",
+    "sellingPoint": "Good fit for students, staff, or single professionals."
+  },
+  {
+    "id": "second-studio",
+    "name": "Second-floor studio",
+    "cameraPosition": [-26, 33, 20],
+    "target": [-7, 25, -8],
+    "caption": "Studio/caretaker room keeps the terrace usable while adding a compact support unit.",
+    "sellingPoint": "Flexible caretaker or low-cost rental option."
+  },
+  {
+    "id": "terrace-tank",
+    "name": "Terrace and water tank",
+    "cameraPosition": [26, 42, 18],
+    "target": [5, 30, -8],
+    "caption": "Terrace drying area, overhead tank zone, and future expansion readiness are kept legible.",
+    "sellingPoint": "Serviceable roof without blocking future work."
+  },
+  {
+    "id": "evening-facade",
+    "name": "Evening facade view",
+    "cameraPosition": [45, 22, 66],
+    "target": [0, 15, 20],
+    "caption": "Warm facade lights, balcony plane, and road-facing massing show the rental street image.",
+    "sellingPoint": "Modern look within a medium-budget palette."
+  }
+]

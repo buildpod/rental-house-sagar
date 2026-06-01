@@ -134,9 +134,9 @@ def draw_gf():
     eng.add_door(Door("Att Bath", "Corridor", 100, 140, 180, 30))
     eng.add_door(Door("C.Bath", "Corridor", 200, 50, 180, 30))
     eng.add_door(Door("Living", "Corridor", 250, 130, 0, 30))
-    eng.add_door(Door("Parking", "Living", 350, 90, -90, 40)) # Fixed routing!
-    eng.add_door(Door("Entry Lobby", "Kitchen", 350, 210, -90, 30))
-    eng.add_door(Door("Stairs", "Kitchen", 350, 280, -90, 30))
+    eng.add_door(Door("Parking", "Living", 350, 90, 180, 40)) # Inward swing to Living
+    eng.add_door(Door("Entry Lobby", "Kitchen", 350, 210, 180, 30)) # Inward swing to Kitchen
+    eng.add_door(Door("Stairs", "Kitchen", 350, 280, 180, 30)) # Inward swing to Kitchen
     
     return eng.render("GROUND FLOOR PLAN (2BHK + PARKING)")
 

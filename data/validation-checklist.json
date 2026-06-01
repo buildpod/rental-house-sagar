@@ -1,6 +1,86 @@
-{
-  "Parking_Fit": "Verified (15x18 handles 16x7 SUV + gate swing + 2 bikes + lobby access)",
-  "OTS_Shafts": "Verified (Central 5x5 ventilates living/baths. Rear 4x5 ventilates rear beds)",
-  "Structural": "Assumption: G+3 column grid matches floor plans",
-  "Verification_Warning": "DO NOT BUILD UNTIL VERIFIED BY LOCAL ARCHITECT AND STRUCTURAL ENGINEER"
-}
+[
+  {
+    "check": "Plot dimension consistency",
+    "status": "Pass",
+    "evidence": "All plans use a 30 ft x 50 ft planning boundary.",
+    "remainingRisk": "Survey dimensions, wall thickness, and setbacks may change usable internal dimensions."
+  },
+  {
+    "check": "Parking usability",
+    "status": "Concept pass",
+    "evidence": "15 ft x 18 ft covered SUV bay plus bike parking zone shown.",
+    "remainingRisk": "Gate width, turning radius, column placement, and actual SUV size must be tested."
+  },
+  {
+    "check": "Staircase independence",
+    "status": "Pass",
+    "evidence": "Common stair is shown separately from the ground-floor 2BHK.",
+    "remainingRisk": "Fire escape, railing, headroom, and stair direction need architect review."
+  },
+  {
+    "check": "2BHK requirements",
+    "status": "Pass",
+    "evidence": "Ground floor includes two bedrooms, two bathrooms, living, kitchen, pooja, parking, and appliance zones.",
+    "remainingRisk": "Door swings and furniture clearances need final drafting."
+  },
+  {
+    "check": "First-floor unit requirements",
+    "status": "Pass",
+    "evidence": "One 1BHK and one single-room unit with attached washroom are represented.",
+    "remainingRisk": "Acoustic privacy and separate tenant access details need development."
+  },
+  {
+    "check": "Balcony included",
+    "status": "Pass",
+    "evidence": "East/front balcony is shown on the first floor.",
+    "remainingRisk": "Municipal projection permission and waterproofing detail are pending."
+  },
+  {
+    "check": "Second-floor studio included",
+    "status": "Pass",
+    "evidence": "Studio/caretaker unit, kitchenette, and washroom are shown.",
+    "remainingRisk": "Final rental legality and service connections must be checked locally."
+  },
+  {
+    "check": "Terrace access",
+    "status": "Pass",
+    "evidence": "Common staircase reaches the second floor/terrace zone.",
+    "remainingRisk": "Mumty height, parapet, and waterproofing are pending."
+  },
+  {
+    "check": "Separate meter area",
+    "status": "Pass",
+    "evidence": "Meter zone is shown near the common front/service entry.",
+    "remainingRisk": "Utility provider rules and panel capacity must be verified."
+  },
+  {
+    "check": "Water tank strategy",
+    "status": "Concept pass",
+    "evidence": "UG sump, pump concept, and overhead tank zone are represented.",
+    "remainingRisk": "Capacity, pump head, overflow, structural load, and water pressure need engineering."
+  },
+  {
+    "check": "Ventilation for each room",
+    "status": "Concept pass with risk",
+    "evidence": "Front openings, balcony, OTS shafts, and terrace-side vents are shown.",
+    "remainingRisk": "Three-side-blocked context makes ventilation high risk; final window/shaft sizing must be checked."
+  },
+  {
+    "check": "Plumbing stack logic",
+    "status": "Concept pass",
+    "evidence": "Wet areas are grouped around OTS/service shafts.",
+    "remainingRisk": "Drainage slope, inspection chambers, vent pipes, and sewer connection are unknown."
+  },
+  {
+    "check": "Heat-control strategy",
+    "status": "Concept pass",
+    "evidence": "East balcony, lighter facade, terrace planning, and shaft ventilation are included.",
+    "remainingRisk": "Material specification, roof insulation, and shading device details remain open."
+  },
+  {
+    "check": "Future expansion readiness",
+    "status": "Pending engineer confirmation",
+    "evidence": "Concept preserves stair and terrace logic for one future floor.",
+    "remainingRisk": "Foundations, columns, beams, and municipal approval must be designed for future load."
+  }
+]

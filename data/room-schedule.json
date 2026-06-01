@@ -1,33 +1,202 @@
-{
-  "Ground_Floor": {
-    "SUV_Parking": "15'x18'",
-    "Stairs": "15'x7'",
-    "Entry_Lobby": "15'x5'",
-    "Living": "10'x18'",
-    "Kitchen": "15'x12'",
-    "Master_Bed": "15'x13'",
-    "Bed_2": "15'x12'",
-    "Common_Bath": "5'x7'",
-    "Att_Bath": "6'x5'",
-    "Pooja": "4'x4'"
+[
+  {
+    "floor": "Ground",
+    "unit": "Independent 2BHK",
+    "roomName": "Covered SUV Parking",
+    "approxDimensions": "15 ft x 18 ft",
+    "areaSqFt": 270,
+    "ventilationSource": "Open east/front road side",
+    "applianceSpaces": ["2-3 bike parking", "meter panel", "underground sump access"],
+    "notes": "Covered bay intended for one SUV plus bikes; final turning radius and gate swing must be checked on site."
   },
-  "First_Floor": {
-    "1BHK_Living": "20'x13'",
-    "1BHK_Kitchen": "10'x8'",
-    "1BHK_Bed": "15'x13'",
-    "1BHK_Bath": "11'x5'",
-    "Single_Room_Living": "20'x17'",
-    "Single_Room_Bed": "15'x12'",
-    "Single_Room_Bath": "5'x9'",
-    "East_Balcony": "5'x23'"
+  {
+    "floor": "Ground",
+    "unit": "Independent 2BHK",
+    "roomName": "Living Room",
+    "approxDimensions": "10 ft x 18 ft",
+    "areaSqFt": 180,
+    "ventilationSource": "East opening and internal shaft-assisted airflow",
+    "applianceSpaces": ["TV wall", "sofa zone", "pooja corner connection"],
+    "notes": "Primary visitor space near entry; final furniture clearances to be confirmed."
   },
-  "Second_Floor": {
-    "Studio_Room": "15'x13'",
-    "Studio_Kitchenette": "In-Room",
-    "Studio_Bath": "5'x8'",
-    "Staircase_Lobby": "15'x6'",
-    "Open_Terrace": "Remaining Area",
-    "Utility_Drying_Zone": "On Terrace",
-    "Water_Tank_Zone": "Over Stair Mumty"
+  {
+    "floor": "Ground",
+    "unit": "Independent 2BHK",
+    "roomName": "Kitchen",
+    "approxDimensions": "15 ft x 12 ft",
+    "areaSqFt": 180,
+    "ventilationSource": "Rear/service ventilation shaft",
+    "applianceSpaces": ["fridge", "sink", "stove", "washing machine point"],
+    "notes": "Wet wall should align with upper-floor utility and bath plumbing where possible."
+  },
+  {
+    "floor": "Ground",
+    "unit": "Independent 2BHK",
+    "roomName": "Master Bedroom",
+    "approxDimensions": "15 ft x 13 ft",
+    "areaSqFt": 195,
+    "ventilationSource": "Rear shaft and high-level window",
+    "applianceSpaces": ["bed", "wardrobe", "attached bath access"],
+    "notes": "South-west planning intent; confirm actual compass orientation on site."
+  },
+  {
+    "floor": "Ground",
+    "unit": "Independent 2BHK",
+    "roomName": "Bedroom 2",
+    "approxDimensions": "15 ft x 12 ft",
+    "areaSqFt": 180,
+    "ventilationSource": "Side/service shaft",
+    "applianceSpaces": ["bed", "wardrobe"],
+    "notes": "Secondary bedroom for family rental."
+  },
+  {
+    "floor": "Ground",
+    "unit": "Independent 2BHK",
+    "roomName": "Attached Bathroom",
+    "approxDimensions": "6 ft x 5 ft",
+    "areaSqFt": 30,
+    "ventilationSource": "OTS shaft",
+    "applianceSpaces": ["WC", "shower", "basin"],
+    "notes": "Stack with upper-floor wet area if structural layout allows."
+  },
+  {
+    "floor": "Ground",
+    "unit": "Independent 2BHK",
+    "roomName": "Common Bathroom",
+    "approxDimensions": "5 ft x 7 ft",
+    "areaSqFt": 35,
+    "ventilationSource": "OTS shaft",
+    "applianceSpaces": ["WC", "shower", "basin"],
+    "notes": "Ventilation and waterproofing are critical because three sides are blocked."
+  },
+  {
+    "floor": "Ground",
+    "unit": "Common",
+    "roomName": "Common Staircase",
+    "approxDimensions": "15 ft x 7 ft",
+    "areaSqFt": 105,
+    "ventilationSource": "Front and stairwell stack ventilation",
+    "applianceSpaces": ["stair light", "railing", "landing"],
+    "notes": "Must remain independent from the ground-floor tenant unit."
+  },
+  {
+    "floor": "First",
+    "unit": "Independent 1BHK",
+    "roomName": "1BHK Living",
+    "approxDimensions": "20 ft x 13 ft",
+    "areaSqFt": 260,
+    "ventilationSource": "East balcony and internal shaft",
+    "applianceSpaces": ["TV wall", "sofa", "dining niche"],
+    "notes": "Primary living area for first-floor family or couple rental."
+  },
+  {
+    "floor": "First",
+    "unit": "Independent 1BHK",
+    "roomName": "1BHK Kitchen",
+    "approxDimensions": "10 ft x 8 ft",
+    "areaSqFt": 80,
+    "ventilationSource": "Shaft and utility-side exhaust",
+    "applianceSpaces": ["fridge", "sink", "stove", "washing machine nearby"],
+    "notes": "Keep plumbing stacked with ground kitchen/common bath as far as feasible."
+  },
+  {
+    "floor": "First",
+    "unit": "Independent 1BHK",
+    "roomName": "1BHK Bedroom",
+    "approxDimensions": "15 ft x 13 ft",
+    "areaSqFt": 195,
+    "ventilationSource": "Rear/service shaft",
+    "applianceSpaces": ["bed", "wardrobe"],
+    "notes": "Bedroom privacy should be protected from common stair movement."
+  },
+  {
+    "floor": "First",
+    "unit": "Independent 1BHK",
+    "roomName": "1BHK Bathroom",
+    "approxDimensions": "11 ft x 5 ft",
+    "areaSqFt": 55,
+    "ventilationSource": "OTS shaft",
+    "applianceSpaces": ["WC", "shower", "basin"],
+    "notes": "Final fixture layout to be checked by plumber and architect."
+  },
+  {
+    "floor": "First",
+    "unit": "Single Room",
+    "roomName": "Single Room",
+    "approxDimensions": "20 ft x 17 ft",
+    "areaSqFt": 340,
+    "ventilationSource": "East balcony/opening and shaft-assisted ventilation",
+    "applianceSpaces": ["bed", "wardrobe", "TV", "compact fridge"],
+    "notes": "Can be positioned for student, staff, or single professional rental."
+  },
+  {
+    "floor": "First",
+    "unit": "Single Room",
+    "roomName": "Attached Bathroom",
+    "approxDimensions": "5 ft x 9 ft",
+    "areaSqFt": 45,
+    "ventilationSource": "OTS shaft",
+    "applianceSpaces": ["WC", "shower", "basin"],
+    "notes": "Attached washroom is mandatory for rental independence."
+  },
+  {
+    "floor": "First",
+    "unit": "Shared frontage",
+    "roomName": "East Balcony",
+    "approxDimensions": "5 ft x 23 ft",
+    "areaSqFt": 115,
+    "ventilationSource": "Open east/front road side",
+    "applianceSpaces": ["plant ledge", "shaded sitting edge"],
+    "notes": "Balcony permission and projection rules must be verified locally."
+  },
+  {
+    "floor": "Second",
+    "unit": "Caretaker/Studio",
+    "roomName": "Studio Room",
+    "approxDimensions": "15 ft x 13 ft",
+    "areaSqFt": 195,
+    "ventilationSource": "Terrace-side opening",
+    "applianceSpaces": ["bed", "wardrobe", "TV", "compact fridge"],
+    "notes": "Can function as caretaker stay or compact rental."
+  },
+  {
+    "floor": "Second",
+    "unit": "Caretaker/Studio",
+    "roomName": "Kitchenette",
+    "approxDimensions": "In-room linear counter",
+    "areaSqFt": 25,
+    "ventilationSource": "Terrace-side exhaust",
+    "applianceSpaces": ["sink", "single burner", "under-counter storage"],
+    "notes": "Keep lightweight and serviceable; avoid heavy wet-area relocation."
+  },
+  {
+    "floor": "Second",
+    "unit": "Caretaker/Studio",
+    "roomName": "Studio Bathroom",
+    "approxDimensions": "5 ft x 8 ft",
+    "areaSqFt": 40,
+    "ventilationSource": "Terrace/shaft exhaust",
+    "applianceSpaces": ["WC", "shower", "basin"],
+    "notes": "Waterproofing and drain slope must be detailed carefully."
+  },
+  {
+    "floor": "Second",
+    "unit": "Terrace",
+    "roomName": "Drying/Washing Area",
+    "approxDimensions": "Flexible terrace zone",
+    "areaSqFt": 120,
+    "ventilationSource": "Open terrace",
+    "applianceSpaces": ["washing point", "clothesline", "floor drain"],
+    "notes": "Provide slope to drain and safe parapet height."
+  },
+  {
+    "floor": "Second",
+    "unit": "Services",
+    "roomName": "Overhead Tank Zone",
+    "approxDimensions": "Approx. 5 ft x 5 ft tank footprint",
+    "areaSqFt": 25,
+    "ventilationSource": "Open roof",
+    "applianceSpaces": ["overhead tank", "pump line", "overflow line"],
+    "notes": "Final tank capacity and staging require structural engineer approval."
   }
-}
+]

@@ -1,8 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rental House 3D Virtual Tour</title>
+  <style>
+    :root {
+      --ink: #151515;
+      --muted: #68645e;
+      --paper: #fffdf8;
+      --line: #d8d2c8;
+      --panel: rgba(255, 253, 248, .92);
+      --clay: #b75f3b;
+      --green: #426b54;
+      --blue: #275f7b;
+    }
 
-<!DOCTYPE html><html><head><title>3D Tour</title><style>body{margin:0; overflow:hidden;} #btns{position:absolute; top:10px; left:10px;}</style></head>
-<body><div id="btns"><button onclick="alert('Viewing Facade')">Facade</button><button onclick="alert('Viewing GF')">Ground Floor</button></div>
-<div id="canvas-container"></div>
-<script type="module">
-import { initTour } from './threejs-tour.js';
-initTour('canvas-container');
-</script></body></html>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #e4e7e1;
+    }
+
+    #canvas-container {
+      position: fixed;
+      inset: 0;
+    }
+
+    .hud {
+      position: fixed;
+      left: 18px;
+      top: 18px;
+      width: min(360px, calc(100vw - 36px));
+      max-height: calc(100vh - 36px);
+      overflow: auto;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 18px 40px rgba(0,0,0,.14);
+      backdrop-filter: blur(14px);
+    }
+
+    .hud h1 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .hud p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .scene-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    button {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: #242424;
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+      padding: 8px 9px;
+    }
+
+    button.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .caption {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: min(420px, calc(100vw - 36px));
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 18px 40px rgba(0,0,0,.14);
+      backdrop-filter: blur(14px);
+    }
+
+    .caption strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--clay);
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .caption p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .hud {
+        left: 10px;
+        top: 10px;
+        width: calc(100vw - 20px);
+        max-height: 46vh;
+      }
+      .caption {
+        right: 10px;
+        bottom: 10px;
+        width: calc(100vw - 20px);
+      }
+      .scene-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container" aria-label="3D massing viewport"></div>
+  <aside class="hud">
+    <h1>3D Concept Tour</h1>
+    <p>Clickable scenes show the rental massing, front elevation, parking, units, stair, terrace, and water tank concept.</p>
+    <div id="scene-list" class="scene-list"></div>
+  </aside>
+  <div class="caption" aria-live="polite">
+    <strong id="scene-name">Front road approach</strong>
+    <p id="scene-caption">East-facing 30 ft road frontage with parking and rental entry strategy.</p>
+  </div>
+
+  <script type="module">
+    import { initTour } from './threejs-tour.js';
+
+    const fallbackScenes = [
+      {"id":"front-road","name":"Front road approach","cameraPosition":[40,24,72],"target":[0,12,18],"caption":"East-facing 30 ft road frontage with the main facade, gate line, balcony, and independent access.","sellingPoint":"Strong street presence for rental appeal."},
+      {"id":"parking","name":"Covered parking","cameraPosition":[30,14,42],"target":[8,4,21],"caption":"Covered SUV bay, bike parking, meter wall, underground sump zone, and separated tenant/stair movement.","sellingPoint":"Practical parking without sacrificing the stair."},
+      {"id":"ground-entry","name":"Ground 2BHK entry","cameraPosition":[24,14,20],"target":[3,4,2],"caption":"Ground floor family unit uses the front lobby and internal living/kitchen spine.","sellingPoint":"Premium family rental on the easiest access level."},
+      {"id":"living","name":"Ground living","cameraPosition":[3,13,16],"target":[-5,5,-6],"caption":"Living, pooja corner, TV wall, and dining connection are grouped near the east-side entry.","sellingPoint":"Visitor-friendly layout with pooja visibility."},
+      {"id":"kitchen","name":"Kitchen service wall","cameraPosition":[-20,14,15],"target":[-7,5,-16],"caption":"Kitchen, sink, fridge, washing point, and wet-wall logic align with plumbing shafts.","sellingPoint":"Lower plumbing cost and easier maintenance."},
+      {"id":"stair","name":"Common stair","cameraPosition":[34,20,8],"target":[10,13,-16],"caption":"Common stair stays independently reachable for upper-floor tenants and terrace access.","sellingPoint":"Clear owner/tenant movement separation."},
+      {"id":"first-floor","name":"First-floor rentals","cameraPosition":[38,30,34],"target":[0,15,0],"caption":"First floor splits into one 1BHK and one single-room unit with a front balcony.","sellingPoint":"Two rental products on one floor."},
+      {"id":"balcony","name":"East balcony","cameraPosition":[16,25,55],"target":[0,17,27],"caption":"Front balcony increases perceived value, shading, and street connection for the first floor.","sellingPoint":"Visible amenity for tenant attraction."},
+      {"id":"studio","name":"Second-floor studio","cameraPosition":[-26,33,20],"target":[-7,25,-8],"caption":"Studio/caretaker room keeps the terrace usable while adding a compact support unit.","sellingPoint":"Flexible caretaker or low-cost rental option."},
+      {"id":"terrace","name":"Terrace and tank","cameraPosition":[26,42,18],"target":[5,30,-8],"caption":"Terrace drying area, overhead tank zone, and future expansion readiness are kept legible.","sellingPoint":"Serviceable roof without blocking future work."},
+      {"id":"evening","name":"Evening facade","cameraPosition":[45,22,66],"target":[0,15,20],"caption":"Warm facade lights, balcony plane, and road-facing massing show the rental street image.","sellingPoint":"Modern look within a medium-budget palette."}
+    ];
+
+    const response = await fetch('./camera-scenes.json').catch(() => null);
+    const scenes = response && response.ok ? await response.json() : fallbackScenes;
+    const tour = initTour('canvas-container', scenes);
+    const list = document.getElementById('scene-list');
+    const name = document.getElementById('scene-name');
+    const caption = document.getElementById('scene-caption');
+
+    function setScene(scene) {
+      tour.goToScene(scene.id);
+      name.textContent = scene.name;
+      caption.textContent = `${scene.caption} ${scene.sellingPoint}`;
+      for (const button of list.querySelectorAll('button')) {
+        button.classList.toggle('active', button.dataset.scene === scene.id);
+      }
+    }
+
+    for (const scene of scenes) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.scene = scene.id;
+      button.textContent = scene.name;
+      button.addEventListener('click', () => setScene(scene));
+      list.appendChild(button);
+    }
+
+    setScene(scenes[0]);
+  </script>
+</body>
+</html>
