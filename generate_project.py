@@ -61,15 +61,15 @@ def draw_gf():
     c += text(300, 80, "LIVING ROOM", 14, "bold")
     c += text(300, 95, "10' x 17'")
     c += text(270, 140, "[TV Wall]", 10, fill="#999", r=-90)
-    c += text(335, 120, "< MAIN ENTRANCE", 10, "bold", fill="#d32f2f", r=-90)
+    c += text(335, 120, "◄ MAIN ENTRANCE", 10, "bold", fill="#d32f2f", r=-90)
     
     c += rect(150, 170, 200, 130, fill="#fff3e0") # Kitchen
-    c += text(250, 230, "KITCHEN & DINING", 14, "bold")
+    c += text(250, 230, "KITCHEN AND DINING", 14, "bold")
     c += text(250, 245, "20' x 13'")
     c += rect(150, 170, 180, 20, fill="#eee", stroke="#ccc")
     c += text(200, 180, "[Stove]", 10, fill="#d32f2f")
     c += text(300, 180, "[Sink]", 10, fill="#1976d2")
-    c += text(335, 210, "< BACK DOOR", 8, fill="#666", r=-90)
+    c += text(335, 210, "◄ BACK DOOR", 8, fill="#666", r=-90)
 
     # 3. BEDROOMS & BATHS (Rear 15-25ft = X: 0-250)
     c += rect(0, 0, 150, 120, fill="#fafafa") # Bed 2
