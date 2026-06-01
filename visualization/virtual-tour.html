@@ -1,5 +1,15 @@
 
-<!DOCTYPE html><html><head><title>3D Tour</title><style>body{margin:0; overflow:hidden;} #btns{position:absolute; top:10px; left:10px;}</style></head>
+<!DOCTYPE html><html><head><title>3D Tour</title><style>body{margin:0; overflow:hidden;} #btns{position:absolute; top:10px; left:10px;}</style>
+<!-- Import Map required for Three.js addons like OrbitControls -->
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
+</head>
 <body><div id="btns"><button onclick="alert('Viewing Facade')">Facade</button><button onclick="alert('Viewing GF')">Ground Floor</button></div>
 <div id="canvas-container"></div>
 <script type="module">
